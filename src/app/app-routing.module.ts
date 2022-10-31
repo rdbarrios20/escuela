@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'aplication',
+    loadChildren: () =>
+      import('./aplication/aplication.module').then((m) => m.AplicationModule),
+  },
+  {
     path: '**',
     redirectTo: 'auth/login',
   },
