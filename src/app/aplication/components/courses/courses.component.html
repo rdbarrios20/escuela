@@ -1,1 +1,65 @@
-<p>courses works!</p>
+<app-navbar></app-navbar>
+<app-navbar></app-navbar>
+<div class="container" style="margin-top: 60px">
+  <div class="row">
+    <div class="col-6">
+      <button type="button" class="btn btn-primary" (change)="changeState()" data-bs-toggle="modal" data-bs-target="#courseModal">Crear
+        Curso</button>
+    </div>
+    <div class="col-6"></div>
+  </div>
+  <div class="row" style="margin-top: 25px">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Horas totales</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of courseList">
+          <td> {{ item.id }}</td>
+          <td> {{ item.name }}</td>
+          <td> {{ item.hourly_intensity }}</td>
+          <td> {{ item.created_at }}</td>
+          <td><button style="width: 120px" type="button" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#courseModal" (click)="getCourse(item.id)">
+              Editar</button></td>
+          <td><button style="width: 120px" (click)="deleteCourse()" type="button" class="btn btn-danger">
+              Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="courseModalLabel">Registrar o modificar cursos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formCourse">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" formControlName="name" id="name" placeholder="Nombre">
+          </div>
+          <div class="mb-3">
+            <label for="hourly_intensity" class="form-label">Intensidad horaria</label>
+            <input type="number" class="form-control" formControlName="hourly_intensity" id="hourly_intensity">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="createCourse()">Registrar</button>
+        <button type="button" class="btn btn-primary" (click)="editCourse()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>

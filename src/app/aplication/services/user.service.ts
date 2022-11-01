@@ -47,7 +47,7 @@ export class UserService {
 
   editUser(user: any, id: number) {
     const data = this.httpClient
-      .post(this.UrlApi + `edit-user/${id}`, user)
+      .put(this.UrlApi + `edit-user/${id}`, user)
       .pipe(
         map((response) => {
           return response;
