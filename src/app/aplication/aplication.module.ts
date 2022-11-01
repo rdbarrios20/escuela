@@ -7,6 +7,8 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { EnrollmentsComponent } from './components/enrollments/enrollments.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     CoursesComponent,
     EnrollmentsComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
-    AplicationRoutingModule
-  ]
+    AplicationRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
 })
-export class AplicationModule { }
+export class AplicationModule {}
