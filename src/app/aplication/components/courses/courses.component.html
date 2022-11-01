@@ -28,7 +28,7 @@
           <td><button style="width: 120px" type="button" class="btn btn-primary" data-bs-toggle="modal"
               data-bs-target="#courseModal" (click)="getCourse(item.id)">
               Editar</button></td>
-          <td><button style="width: 120px" (click)="deleteCourse()" type="button" class="btn btn-danger">
+          <td><button style="width: 120px" (click)="deleteCourse(item.id)" type="button" class="btn btn-danger">
               Eliminar</button></td>
         </tr>
       </tbody>

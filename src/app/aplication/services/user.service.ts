@@ -10,7 +10,6 @@ import { tap } from 'rxjs/operators';
 })
 export class UserService {
   UrlApi = 'http://localhost:8000/api/';
-  token = localStorage.getItem('token');
   private refresh$ = new Subject<void>();
   constructor(private httpClient: HttpClient) {}
 

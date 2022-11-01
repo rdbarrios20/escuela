@@ -50,4 +50,15 @@ export class CourseService {
     );
     return data;
   }
+
+  deleteCourse(id: number) {
+    const data = this.httpClient
+      .delete(this.UrlApi + `delete-course/${id}`)
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
+    return data;
+  }
 }

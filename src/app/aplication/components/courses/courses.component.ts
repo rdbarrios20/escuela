@@ -88,7 +88,15 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  deleteCourse(): void {}
+  deleteCourse(id: number): void {
+    this.courseService.deleteCourse(id).subscribe((data: any) => {
+      if (data.message) {
+        this.formCourse.reset(this.formCourse.value);
+        Swal.fire('Curso eliminado exitosamente');
+        this.getCoursesList();
+      }
+    });
+  }
 
   changeState() {
     this.createVisible = true;
